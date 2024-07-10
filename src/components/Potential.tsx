@@ -5,7 +5,7 @@ const PotentialSection = () => {
       style={{ backgroundImage: "url('/images/StrategyBg.png')" }}
     >
       <h2 className="text-3xl font-[400] sm:text-4xl">
-        Don't Settle for Less than Your FULLEST Potential!
+        Don&apos;t Settle for Less than Your FULLEST Potential!
       </h2>
       <p className="mt-4 text-xl">Our test prep curriculum produces results.</p>
     </div>

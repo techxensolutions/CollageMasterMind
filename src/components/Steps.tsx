@@ -62,7 +62,7 @@ const StepsSection = () => {
             href="#"
             className="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
           >
-            I'M READY TO GET STARTED!
+            I&apos;M READY TO GET STARTED!
           </Link>
         </div>
       </div>
