@@ -62,7 +62,7 @@ const ScoresSection: React.FC = () => {
   ];
 
   return (
-    <div className="relative pb-16 pt-32" ref={setRefs}>
+    <div className="relative pb-16 pt-32 " ref={setRefs}>
       <div className="px-4 max-w-[1250px] mx-auto sm:px-6 lg:px-8">
         <h2 className="text-3xl font-[600] text-center text-gray-900 sm:text-4xl">
           What Scores Should I Try to Reach?

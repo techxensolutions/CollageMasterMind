@@ -126,26 +126,32 @@ const TestPrepPrograms: React.FC = () => {
           {filteredPrograms.map((program, index) => (
             <motion.div
               key={program.id}
-              className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300 relative" 
+              className="bg-white border border-gray-200 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow duration-300 relative min-h-[20em]" 
               custom={index}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               variants={cardVariants}
             >
-              <img src='/images/ScoresBG.png' alt="bg" className="absolute object-contain max-h-64 right-0 top-0 opacity-60 z-0 overflow-hidden" />
+              <div className="absolute object-contain h-[60%] max-h-72 right-0 top-0 overflow-hidden">
+              <img src='/images/ScoresBG.png' alt="bg" className="w-full h-full object-contain" />
+              </div>
+              <div className="z-30 h-1/2 w-full absolute top-0 mx-auto mb-4 pt-6">
               <img
                 src={program.image}
                 alt={program.title}
-                className="mx-auto mb-4 z-30 overflow-hidden"
+                className=" w-full h-full object-contain"
               />
-              <p className="mt-4 font-[600] text-gray-700">{program.description}</p>
-              <div className="mt-8">
+              </div>
+              <div className="mt-[60%]">
+              <p className="mt-4 font-[600] text-gray-700 px-6">{program.description}</p>
+              <div className="mt-8 pb-6">
                 <Link
                   href="#"
                   className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
                 >
                   Read More
                 </Link>
+              </div>
               </div>
             </motion.div>
           ))}

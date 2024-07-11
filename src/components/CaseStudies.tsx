@@ -37,34 +37,41 @@ const CaseStudies = () => {
     },
   ];
 
-  const settings = {
+  var settings = {
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    arrows: false,
+    slidesToShow: 4,
     slidesToScroll: 1,
+    initialSlide: 0,
+    autoplay: true,
+    speed: 4000,
+    autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 1024, // Large screens
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
-        },
-      },
-      {
-        breakpoint: 768, // Medium screens
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-        },
+          infinite: true,
+          dots: true
+        }
       },
       {
-        breakpoint: 640, // Small screens
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -80,7 +87,7 @@ const CaseStudies = () => {
         <div className="mt-14">
           <Slider {...settings}>
             {caseStudies.map((caseStudy) => (
-              <div key={caseStudy.id} className="px-4">
+              <div key={caseStudy.id} className="px-4 w-1/4">
                 <div className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300">
                   <h3 className="case-study-title text-center">
                     {caseStudy.title}

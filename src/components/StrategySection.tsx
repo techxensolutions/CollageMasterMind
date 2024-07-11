@@ -31,6 +31,7 @@ const StrategySection = () => {
               visible: { opacity: 1 },
               hidden: { opacity: 0 }
             }}
+            
             transition={{
               duration: 0.8,
               delay: 0.2,
