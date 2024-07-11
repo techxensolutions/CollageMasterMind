@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const InfoSection = () => {
   return (
-    <div className="pt-16 mt-5">
-      <div className="max-w-[1250px] mx-auto">
+    <div className="pt-16 mt-5 max-w-[100vw] overflow-x-hidden">
+      <div className="max-w-[1250px] mx-auto ">
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
