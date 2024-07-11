@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 const GpaToTestScores = () => {
   return (
@@ -11,12 +12,7 @@ const GpaToTestScores = () => {
         GPA to Test Scores Calculate
         </h2>
         <div className="mt-8">
-          <Link
-            href="#"
-            className="inline-block px-5 py-3 border border-transparent text-base font-medium rounded-md bg-white text-primary hover:bg-gray-200"
-          >
-           What Score Should I Get?
-          </Link>
+        <Button title="What Score Should I Get?"/> 
         </div>
       </div>
     </div>

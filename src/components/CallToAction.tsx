@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Button from './Button';
 
 const CallToActionBanner = () => {
   return (
@@ -12,10 +12,7 @@ const CallToActionBanner = () => {
         </h2>
         <p className="mt-4 text-xl text-white">Why You Need a High Score and How to Get It.</p>
         <div className="mt-8">
-          <Link href="#" className="inline-block px-5 py-3 border border-transparent text-base font-medium rounded-md bg-white text-primary hover:bg-gray-200">
-            
-              CLICK HERE TO WATCH HOW
-          </Link>
+          <Button title='CLICK HERE TO WATCH HOW'/>
         </div>
       </div>
     </div>

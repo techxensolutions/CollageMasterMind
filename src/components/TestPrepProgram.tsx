@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Button from "./Button";
 
 const TestPrepPrograms = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -132,12 +133,7 @@ const TestPrepPrograms = () => {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <Link
-            href="#"
-            className="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
-          >
-            I WANT TO RAISE MY SCORES!
-          </Link>
+        <Button title=" I WANT TO RAISE MY SCORES!" type="filled"/>
         </div>
       </div>
     </div>

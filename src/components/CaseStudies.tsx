@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -64,12 +65,7 @@ const CaseStudies = () => {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <Link
-            href="#"
-            className="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
-          >
-            BOOK YOUR STRATEGY SESSION!
-          </Link>
+        <Button title="BOOK YOUR STRATEGY SESSION!" type="filled"/> 
         </div>
       </div>
     </div>

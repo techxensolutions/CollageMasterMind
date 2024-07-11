@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 const StepsSection = () => {
   return (
@@ -58,12 +59,7 @@ const StepsSection = () => {
           </div>
         </div>
         <div className="mt-8 text-center">
-          <Link
-            href="#"
-            className="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
-          >
-            I&apos;M READY TO GET STARTED!
-          </Link>
+         <Button title="I'M READY TO GET STARTED!" type="filled"/>
         </div>
       </div>
     </div>
