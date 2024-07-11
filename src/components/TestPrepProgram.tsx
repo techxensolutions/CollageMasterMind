@@ -2,8 +2,22 @@
 import Link from "next/link";
 import { useState } from "react";
 import Button from "./Button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-const TestPrepPrograms = () => {
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2, // Stagger the animation
+      duration: 0.6,
+    },
+  }),
+};
+
+const TestPrepPrograms: React.FC = () => {
   const [activeTab, setActiveTab] = useState("all");
 
   const programs = [
@@ -21,7 +35,7 @@ const TestPrepPrograms = () => {
       title: "High Scorers",
       description:
         "SAT and ACT prep for students with starting scores of 1350+ SAT and 28+ ACT",
-      image: "/images/Test.png",
+      image: "/images/HighScorer.png",
     },
     {
       id: 3,
@@ -29,7 +43,7 @@ const TestPrepPrograms = () => {
       title: "PSAT Prep",
       description:
         "PSAT tutoring to qualify for National Merit Scholar or to increase lower scores",
-      image: "/images/Test.png",
+      image: "/images/PSAT.png",
     },
     {
       id: 4,
@@ -37,7 +51,7 @@ const TestPrepPrograms = () => {
       title: "Test Anxiety",
       description:
         "For students not able to demonstrate their abilities on tests because of nerves",
-      image: "/images/Test.png",
+      image: "/images/TestAnxiety.png",
     },
   ];
 
@@ -46,19 +60,21 @@ const TestPrepPrograms = () => {
       ? programs
       : programs.filter((p) => p.category === activeTab);
 
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false, // Trigger animation every time it comes into view
+  });
+
   return (
     <div className="py-16">
       <div className="max-w-[1250px] mx-auto">
         <h2 className="text-3xl font-[500] text-center text-gray-900 sm:text-4xl">
           Our Test Prep Programs
         </h2>
-        <div>
         <div className="mt-14 mx-auto flex justify-center flex-wrap w-auto rounded-full py-1">
           <button
             className={`mx-2 py-2 px-4 rounded-full ${
-              activeTab === "all"
-                ? "bg-blue-600 text-white"
-                : " text-gray-600"
+              activeTab === "all" ? "bg-blue-600 text-white" : "text-gray-600"
             }`}
             onClick={() => setActiveTab("all")}
           >
@@ -68,7 +84,7 @@ const TestPrepPrograms = () => {
             className={`mx-2 py-2 px-4 rounded-full ${
               activeTab === "test-prep"
                 ? "bg-blue-600 text-white"
-                : " text-gray-600"
+                : "text-gray-600"
             }`}
             onClick={() => setActiveTab("test-prep")}
           >
@@ -78,7 +94,7 @@ const TestPrepPrograms = () => {
             className={`mx-2 py-2 px-4 rounded-full ${
               activeTab === "high-scorers"
                 ? "bg-blue-600 text-white"
-                : " text-gray-600"
+                : "text-gray-600"
             }`}
             onClick={() => setActiveTab("high-scorers")}
           >
@@ -86,9 +102,7 @@ const TestPrepPrograms = () => {
           </button>
           <button
             className={`mx-2 py-2 px-4 rounded-full ${
-              activeTab === "psat"
-                ? "bg-blue-600 text-white"
-                : " text-gray-600"
+              activeTab === "psat" ? "bg-blue-600 text-white" : "text-gray-600"
             }`}
             onClick={() => setActiveTab("psat")}
           >
@@ -98,42 +112,46 @@ const TestPrepPrograms = () => {
             className={`mx-2 py-2 px-4 rounded-full ${
               activeTab === "test-anxiety"
                 ? "bg-blue-600 text-white"
-                : " text-gray-600"
+                : "text-gray-600"
             }`}
             onClick={() => setActiveTab("test-anxiety")}
           >
             Test Anxiety
           </button>
         </div>
-        </div>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 md:px-0">
-          {filteredPrograms.map((program) => (
-            <div
+        <div
+          className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 md:px-0"
+          ref={ref}
+        >
+          {filteredPrograms.map((program, index) => (
+            <motion.div
               key={program.id}
-              className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300 relative" 
+              custom={index}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={cardVariants}
             >
+              <img src='/images/ScoresBG.png' alt="bg" className="absolute object-contain max-h-64 right-0 top-0 opacity-60 z-0 overflow-hidden" />
               <img
                 src={program.image}
                 alt={program.title}
-                className="mx-auto mb-4"
+                className="mx-auto mb-4 z-30 overflow-hidden"
               />
-              <h3 className="text-xl font-bold text-blue-600">
-                {program.title}
-              </h3>
-              <p className="mt-4 text-gray-700">{program.description}</p>
+              <p className="mt-4 font-[600] text-gray-700">{program.description}</p>
               <div className="mt-8">
                 <Link
                   href="#"
-                  className="inline-block px-5 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
+                  className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
                 >
                   Read More
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="mt-8 text-center">
-        <Button title=" I WANT TO RAISE MY SCORES!" type="filled"/>
+          <Button title="I WANT TO RAISE MY SCORES!" type="filled" />
         </div>
       </div>
     </div>

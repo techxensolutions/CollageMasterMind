@@ -1,5 +1,9 @@
+'use client';
 import Link from "next/link";
 import Button from "./Button";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -33,39 +37,70 @@ const CaseStudies = () => {
     },
   ];
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Large screens
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 768, // Medium screens
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 640, // Small screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="relative py-16">
       <div
-        className="absolute right-0 top-0 w-[250px] h-[585px]  bg-contain bg-no-repeat"
+        className="absolute right-0 top-0 w-[250px] h-[585px] bg-contain bg-no-repeat"
         style={{ backgroundImage: "url('/images/ScoresBG.png')" }}
       ></div>
       <div className="relative max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-0">
         <h2 className="text-3xl font-[500] text-center text-gray-900 sm:text-4xl">
           Case Studies
         </h2>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {caseStudies.map((caseStudy) => (
-            <div
-              key={caseStudy.id}
-              className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <h3 className="text-xl font-bold text-blue-600">
-                {caseStudy.title}
-              </h3>
-              <p className="mt-4 text-gray-700">{caseStudy.description}</p>
-              <div className="mt-8">
-                <Link
-                  href="#"
-                  className="inline-block px-5 py-3 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
-                >
-                  Read More
-                </Link>
+        <div className="mt-14">
+          <Slider {...settings}>
+            {caseStudies.map((caseStudy) => (
+              <div key={caseStudy.id} className="px-4">
+                <div className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <h3 className="case-study-title text-center">
+                    {caseStudy.title}
+                  </h3>
+                  <p className="mt-4 text-gray-700">{caseStudy.description}</p>
+                  <div className="mt-8">
+                    <Link
+                      href="#"
+                      className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md bg-primary text-white hover:bg-primary-dark"
+                    >
+                      Read More
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </Slider>
         </div>
         <div className="mt-8 text-center">
-        <Button title="BOOK YOUR STRATEGY SESSION!" type="filled"/> 
+          <Button title="BOOK YOUR STRATEGY SESSION!" type="filled" />
         </div>
       </div>
     </div>

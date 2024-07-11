@@ -1,11 +1,18 @@
+"use client";
 import Image from "next/image";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 const InfoSection = () => {
   return (
     <div className="pt-16">
-      <div className="max-w-[1250px] mx-auto ">
-        <div className="flex justify-between items-center flex-col md:flex-row mb-16 gap-8 md:gap-20 px-4 md:px-0">
+      <div className="max-w-[1250px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex justify-between items-center flex-col md:flex-row mb-16 gap-8 md:gap-20 px-4 md:px-0"
+        >
           <div className="md:w-[60%]">
             <h2 className="text-3xl font-[500] text-secondary sm:text-4xl">
               Get the plan, accountability, and the motivation you need to
@@ -26,9 +33,14 @@ const InfoSection = () => {
               alt="Test Prep"
             />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-between items-center flex-col md:flex-row gap-8 md:gap-20 px-4 md:px-0">
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex justify-between items-center flex-col md:flex-row gap-8 md:gap-20 px-4 md:px-0"
+        >
           <div className="mt-10 lg:mt-0">
             <Image
               width={400}
@@ -48,7 +60,7 @@ const InfoSection = () => {
               <Button title="LEARN MORE" type="filled" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

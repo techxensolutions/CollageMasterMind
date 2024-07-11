@@ -25,3 +25,10 @@ body {
     text-wrap: balance;
   }
 }
+
+.case-study-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 31.2px;
+  text-align: center;
+}
