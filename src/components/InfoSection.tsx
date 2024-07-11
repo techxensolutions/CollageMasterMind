@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const InfoSection = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-16 mt-5">
       <div className="max-w-[1250px] mx-auto">
         <motion.div
           initial={{ opacity: 0, x: 80 }}
@@ -41,7 +41,7 @@ const InfoSection = () => {
           transition={{ duration: 1 }}
           className="flex justify-between items-center flex-col md:flex-row gap-8 md:gap-20 px-4 md:px-0"
         >
-          <div className="mt-10 lg:mt-0">
+          <div className="mt-15 lg:mt-0 border">
             <Image
               width={400}
               height={400}

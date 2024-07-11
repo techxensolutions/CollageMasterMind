@@ -1,7 +1,7 @@
 const PotentialSection = () => {
   return (
     <div
-      className="relative bg-cover bg-center py-6 h-[230px] rounded-xl text-white flex flex-col justify-center items-center max-w-[1260px] mx-4 md:mx-auto mt-20 p-4"
+      className="relative bg-cover bg-center py-6 h-[230px] rounded-xl text-white flex flex-col justify-center items-center max-w-[1260px] mx-4 md:mx-auto mt-32 p-4"
       style={{ backgroundImage: "url('/images/StrategyBg.png')" }}
     >
       <h2 className="text-3xl font-[400] sm:text-4xl">

@@ -43,7 +43,7 @@ const StepsSection: React.FC = () => {
 
   return (
     <div className="py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 md:mt-10">
         <h2 className="text-3xl font-[500] text-center text-gray-900 sm:text-4xl">
           College Mastermind Steps
         </h2>

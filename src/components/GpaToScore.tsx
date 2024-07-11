@@ -4,7 +4,7 @@ import Button from "./Button";
 const GpaToTestScores = () => {
   return (
     <div
-      className="relative max-w-[1250px] md:mx-auto rounded-xl bg-cover bg-center py-16 mx-4"
+      className="relative max-w-[1250px] md:mx-auto rounded-xl bg-cover bg-center py-16 mx-4 md:mt-10"
       style={{ backgroundImage: "url('/images/StrategyBg.png')" }}
     >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

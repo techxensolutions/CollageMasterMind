@@ -3,7 +3,7 @@ import Button from './Button';
 const CallToActionBanner = () => {
   return (
     <div
-      className="relative max-w-[1250px]  rounded-xl bg-cover bg-center py-16 mx-4 md:mx-auto"
+      className="relative max-w-[1250px]  rounded-xl bg-cover bg-center py-16 mx-4 md:mx-auto md:mt-12"
       style={{ backgroundImage: "url('/images/StrategyBg.png')" }}
     >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
